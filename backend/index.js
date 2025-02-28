@@ -12,6 +12,8 @@ const AccountSubGroupRoute = require("./routes/AccountSubGroupRoute");
 const VoucherRoute = require("./routes/VoucherRoutes");
 const VoucherDetailRoutes = require("./routes/VoucherDetailRoutes");
 const ServiceRoute = require("./routes/ServiceRoute");
+const InvoiceHeaderRoute = require("./routes/InvoiceHeaderRoute");
+const InvoiceDetailRoute = require("./routes/InvoiceDetailRoute");
 
 
 mongoose.connect("mongodb://127.0.0.1:27017/accounting", {
@@ -30,6 +32,10 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+app.use("/InvoiceDetail", InvoiceDetailRoute);
+
+app.use("/InvoiceHeader", InvoiceHeaderRoute);
 
 app.use("/VoucherDetail", VoucherDetailRoutes);
 
