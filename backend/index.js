@@ -14,6 +14,7 @@ const VoucherDetailRoutes = require("./routes/VoucherDetailRoutes");
 const ServiceRoute = require("./routes/ServiceRoute");
 const InvoiceHeaderRoute = require("./routes/InvoiceHeaderRoute");
 const InvoiceDetailRoute = require("./routes/InvoiceDetailRoute");
+const ParkingRoute = require("./routes/ParkingRoute");
 
 
 mongoose.connect("mongodb://127.0.0.1:27017/accounting", {
@@ -32,6 +33,8 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
+
+app.use("/Parking", ParkingRoute);
 
 app.use("/InvoiceDetail", InvoiceDetailRoute);
 
